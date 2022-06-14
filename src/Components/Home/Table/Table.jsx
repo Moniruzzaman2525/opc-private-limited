@@ -11,23 +11,23 @@ function Table() {
   const columns = [
     { field: 'id', fieldName: '#' },
     { field: 'name', fieldName: 'Name' },
-    { field: 'dob', fieldName: 'Date Of Birth' },
+    { field: 'Phone', fieldName: 'Phone Number' },
     { field: 'email', fieldName: 'Email' },
-    { field: 'result', fieldName: 'Result' },
-    { field: 'select', fieldName: 'Select' },
+    { field: 'Hobbies', fieldName: 'Hobbies' },
+    // { field: 'select', fieldName: 'Select' },
     { field: 'action', fieldName: 'Action' },
   ];
 
 
   useEffect(() => {
-    setSpinner(true);
+    // setSpinner(true);
     fetch('https://murmuring-ridge-59282.herokuapp.com/candidates')
       .then(res => res.json())
       .then(data => {
         setCandidate(data);
-        setSpinner(false);
+        // setSpinner(false);
       })
-  }, []);
+  }, [candidate]);
 
   // console.log(candidate)
   return (

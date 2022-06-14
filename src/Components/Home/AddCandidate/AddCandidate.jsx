@@ -11,8 +11,8 @@ const AddCandidate = () => {
 
         const newData = {
             name: data.name,
-            email: "N/A",
-            dob: data.date,
+            email: data.email,
+            // dob: data.date,
             address: data.address,
             age: data.age,
             state: data.state,
