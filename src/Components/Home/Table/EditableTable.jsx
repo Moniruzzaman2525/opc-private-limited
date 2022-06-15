@@ -36,22 +36,22 @@ const EditableTable = ({ columns, rows, actions }) => {
   const handleRemoveRow = (rowID) => {
 
     //Delete row from database
-    // if (window.confirm('Are you sure you want to delete this row?')) {
-    fetch(`https://murmuring-ridge-59282.herokuapp.com/candidates/${rowID}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data)
-        setRowsState(data)
-      }
-      )
-    // } else {
-    //   alert('nothing')
-    // }
+    if (window.confirm('Are you sure you want to delete this Item?')) {
+      fetch(`https://murmuring-ridge-59282.herokuapp.com/candidates/${rowID}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data)
+          setRowsState(data)
+        }
+        )
+      // } else {
+      //   alert('nothing')
+    }
   }
 
   const handleOnChangeField = (e, rowID) => {
@@ -123,9 +123,7 @@ const EditableTable = ({ columns, rows, actions }) => {
         <thead >
           <tr>
             <th>
-              <label>
-                <input type="checkbox" class="checkbox" />
-              </label>
+
             </th>
             {columns.map((column) => {
               return <th key={column.field}>{column.fieldName}</th>
@@ -162,25 +160,25 @@ const EditableTable = ({ columns, rows, actions }) => {
                     : row.name
                   }
                 </td>
-                <td>
+
+                <td className='col-span-2'>
                   {isEditMode && rowIDToEdit === row._id
                     ? <input
+                      type="number"
                       className='input input-bordered w-full max-w-xs'
-                      // type='date'
-                      defaultValue={editedRow && editedRow.dob}
-                      id={row._id}
-                      name='dob'
-                      onChange={(e) => {
+                      onChange={e => {
                         handleOnChangeField(e, row._id)
                         setDob(e.target.value)
-                      }}
-                    />
+                      }} name="dob" defaultValue={row.dob}>
+
+                    </input>
                     : row.dob
                   }
                 </td>
                 <td className='col-span-2'>
                   {isEditMode && rowIDToEdit === row._id
                     ? <input
+                      type="email"
                       className='input input-bordered w-full max-w-xs'
                       onChange={e => {
                         handleOnChangeField(e, row._id)
@@ -198,51 +196,14 @@ const EditableTable = ({ columns, rows, actions }) => {
                       onChange={e => {
                         handleOnChangeField(e, row._id)
                         setHobby(e.target.value)
-                      }} name="hobby" defaultValue={result ? result : row.result}>
+                      }} name="hobby" defaultValue={result ? result : row.hobby}>
 
                     </input>
                     : row.hobby
                   }
                 </td>
 
-                {/* <td>
-                  {isEditMode && rowIDToEdit === row._id
-                    ? <input
-                      type='text'
-                      defaultValue={result ? result : row.result}
-                      id={row._id}
-                      name='result'
 
-                    />
-                    : row.result
-                  }
-                </td> */}
-                {/* <td>
-                  <div className="dropdown dropdown-end">
-                    <label onClick={() => {
-                      // setOpen(open)
-
-                      setRowID(row._id)
-                      // handleEdit(row._id)
-                    }} tabIndex="0" className="m-1"><TiArrowSortedDown className='ml-5 mt-1' /></label>
-                    <ul tabIndex="0" className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                      <li onClick={() => {
-                        setResult("Shortlist")
-                        setEditedRow({
-                          id: rowID,
-                          result: result
-                        })
-                      }}><a>Shortlist</a></li>
-                      <li onClick={() => {
-                        setResult("Reject")
-                        setEditedRow({
-                          id: rowID,
-                          result: result
-                        })
-                      }}><a>Reject</a></li>
-                    </ul>
-                  </div>
-                </td> */}
                 {actions &&
                   <td>
                     {isEditMode && rowIDToEdit === row._id

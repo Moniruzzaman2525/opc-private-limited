@@ -3,10 +3,12 @@ import EditableTable from "./EditableTable";
 import { BiUserPlus } from 'react-icons/bi';
 import { useNavigate } from 'react-router-dom';
 import Spinner from '../../Spinner/Spinner';
+import Modal from './Modal';
+
 
 function Table() {
   const [candidate, setCandidate] = useState([]);
-  const navigate = useNavigate();
+  const [addItem, setAddItem] = useState(null);
   const [spinner, setSpinner] = useState(false);
   const columns = [
     { field: 'id', fieldName: '#' },
@@ -29,16 +31,21 @@ function Table() {
       })
   }, [candidate]);
 
-  // console.log(candidate)
+  console.log(candidate)
   return (
     <>
       {
         spinner ? <Spinner /> :
           <div className='mb-10 pt-20'>
             <EditableTable columns={columns} rows={candidate} actions />
-            <button onClick={() => navigate('/create-candidate')} className='mt-2 ml-4 md:ml-0 flex items-center btn btn-primary text-white'>Add Candidate <BiUserPlus className='ml-3 text-2xl'></BiUserPlus></button>
           </div>
       }
+      <label
+        for="my-modal-6"
+        onClick={() => setAddItem(!addItem)}
+        class="mt-2 ml-4 md:ml-0 flex items-center btn w-48 btn-primary text-white">
+        ADD New <BiUserPlus className='ml-3 text-2xl'></BiUserPlus></label>
+      {addItem && <Modal setAddItem={setAddItem} addItem={addItem}></Modal>}
 
     </>
 
