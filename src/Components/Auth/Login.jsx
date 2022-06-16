@@ -7,7 +7,6 @@ import GithubLogo from '../../Assets/Social/github.svg';
 import { useAuthState, useSignInWithEmailAndPassword, useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import toast from 'react-hot-toast';
-import { sendPasswordResetEmail } from 'firebase/auth';
 import Spinner from '../Spinner/Spinner';
 
 const Login = () => {
@@ -44,7 +43,7 @@ const Login = () => {
             return;
         }
     }, [gError, error1, gitError, fError]);
-    
+
 
     if (gLoading || fLoading || gitLoading || loading) {
         return <Spinner />
@@ -53,7 +52,7 @@ const Login = () => {
 
     return (
         <>
-            <h1 className='text-center text-primary text-2xl font-bold pt-10 mb-5'>Deskala - Assignment</h1>
+            <h1 className='text-center text-primary text-2xl font-bold pt-10 mb-5'>(OPC) PRIVATE LIMITED</h1>
             <div className='flex justify-center items-center'>
                 <div className="card w-96 bg-base-100 shadow-2xl">
                     <div className="card-body">

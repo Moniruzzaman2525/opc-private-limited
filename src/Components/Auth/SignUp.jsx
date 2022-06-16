@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate  } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { useCreateUserWithEmailAndPassword, useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
@@ -39,7 +39,7 @@ const SignUp = () => {
         signInError = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>
     }
 
-    
+
 
     const onSubmitParam = async data => {
         const { email, password, number } = data;
@@ -47,29 +47,29 @@ const SignUp = () => {
         await createUserWithEmailAndPassword(email, password);
 
         fetch(`https://murmuring-ridge-59282.herokuapp.com/users`, {
-                method: 'PUT',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(registeredUser)
-            })
-                .then(res => res.json())
-                .then(data => {
-                    toast.success("User created successfully")
-                }
-        )
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(registeredUser)
+        })
+            .then(res => res.json())
+            .then(data => {
+                toast.success("User created successfully")
+            }
+            )
 
         navigate('/');
         reset()
     }
     return (
         <>
-            <h1 className='text-center text-primary text-2xl font-bold pt-10 mb-5'>Deskala - Assignment</h1>
+            <h1 className='text-center text-primary text-2xl font-bold pt-10 mb-5'>(OPC) PRIVATE LIMITED</h1>
             <div className='flex h-screen justify-center items-center'>
-            <div className="card w-96 bg-base-100 shadow-2xl">
-                <div className="card-body">
-                    <h2 className="text-center text-2xl font-bold">Sign Up</h2>
-                    <form onSubmit={handleSubmit(onSubmitParam)}>
+                <div className="card w-96 bg-base-100 shadow-2xl">
+                    <div className="card-body">
+                        <h2 className="text-center text-2xl font-bold">Sign Up</h2>
+                        <form onSubmit={handleSubmit(onSubmitParam)}>
 
                             <div className="form-control w-full max-w-xs">
                                 <label className="label">
@@ -153,16 +153,16 @@ const SignUp = () => {
                                 <input className='btn btn-primary w-1/2 max-w-xs text-white' type="submit" value="Sign Up" />
                             </div>
                         </form>
-                    <p className='text-center'><small>Already have an account? <Link className='text-primary' to="/login">Please login</Link></small></p>
-                    <div className="divider">OR</div>
-                    <div className='flex flex-row items-center justify-center'>
+                        <p className='text-center'><small>Already have an account? <Link className='text-primary' to="/login">Please login</Link></small></p>
+                        <div className="divider">OR</div>
+                        <div className='flex flex-row items-center justify-center'>
                             <button onClick={() => signInWithFacebook()} className='mx-4'><img className='w-9' src={FacebookLogo} alt="" /></button>
                             <button onClick={() => signInWithGoogle()} className='mx-4'><img className='w-9' src={GoogleLogo} alt="" /></button>
                             <button onClick={() => signInWithGithub()} className='mx-4'><img className='w-9' src={GithubLogo} alt="" /></button>
                         </div>
+                    </div>
                 </div>
-            </div>
-        </div >
+            </div >
         </>
     );
 };
