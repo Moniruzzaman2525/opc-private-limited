@@ -114,13 +114,14 @@ const Login = () => {
                                 <input className='btn btn-primary w-1/2 max-w-xs text-white' type="submit" value="Login" />
                             </div>
                         </form>
-                        <p className='text-center'><small>Don't have an account? <Link className='text-primary' to="/signup">Join Now</Link></small></p>
                         <div className="divider">OR</div>
-                        <div className='flex flex-row items-center justify-center'>
+                        <p className='text-center'><small>Don't have an account? <Link className='text-primary' to="/signup">Join Now</Link></small></p>
+
+                        {/* <div className='flex flex-row items-center justify-center'>
                             <button onClick={() => signInWithFacebook()} className='mx-4'><img className='w-9' src={FacebookLogo} alt="" /></button>
                             <button onClick={() => signInWithGoogle()} className='mx-4'><img className='w-9' src={GoogleLogo} alt="" /></button>
                             <button onClick={() => signInWithGithub()} className='mx-4'><img className='w-9' src={GithubLogo} alt="" /></button>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div >
