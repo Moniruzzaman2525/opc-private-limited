@@ -1,0 +1,44 @@
+[debug] [2022-06-16T19:04:43.986Z] ----------------------------------------------------------------------
+[debug] [2022-06-16T19:04:43.988Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\PC\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-06-16T19:04:43.989Z] CLI Version:   11.0.1
+[debug] [2022-06-16T19:04:43.989Z] Platform:      win32
+[debug] [2022-06-16T19:04:43.989Z] Node Version:  v16.13.1
+[debug] [2022-06-16T19:04:43.990Z] Time:          Fri Jun 17 2022 01:04:43 GMT+0600 (Bangladesh Standard Time)
+[debug] [2022-06-16T19:04:43.991Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-06-16T19:04:44.089Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-06-16T19:04:44.090Z] > authorizing via signed-in user (md616264@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\task\ooc-private-limited
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2022-06-16T19:04:51.340Z] Using project from CLI flag: deskala-task
+[debug] [2022-06-16T19:04:51.346Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/deskala-task [none]
+[debug] [2022-06-16T19:04:51.894Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/deskala-task 403
+[debug] [2022-06-16T19:04:51.894Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/deskala-task {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2022-06-16T19:04:51.895Z] HTTP Error: 403, The caller does not have permission
+[debug] [2022-06-16T19:04:52.103Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at module.exports (C:\Users\PC\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:47:12)
+    at RetryOperation._fn (C:\Users\PC\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:286:39)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: Failed to get Firebase project deskala-task. Please make sure the project exists and your account has permission to access it.
